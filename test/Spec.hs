@@ -24,9 +24,8 @@ main = hspecWith defaultConfig {configFastFail = True} specs
 specs :: Spec
 specs = describe "greedyDenominator" $ for_ cases test
     where
-    test Case{..} = it explanation assertion
+    test Case{..} = it description assertion
       where
-        explanation = unwords [ "-", description]
         assertion   = greedyDenominator numerator denominator 2 `shouldBe` expected
 
 data Case = Case { description :: String
