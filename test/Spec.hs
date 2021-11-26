@@ -16,7 +16,7 @@ import           Data.Function     (on)
 import           Test.Hspec        (Spec, describe, it, shouldBe)
 import           Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
 
-import           Lib               (greedyDenominator)
+import           Lib               (Fraction (..), greedyDenominator)
 
 main :: IO ()
 main = hspecWith defaultConfig {configFastFail = True} specs
@@ -26,18 +26,25 @@ specs = describe "greedyDenominator" $ for_ cases test
     where
     test Case{..} = it description assertion
       where
-        assertion   = greedyDenominator numerator denominator 2 `shouldBe` expected
+        assertion   = greedyDenominator (Fraction numerator denominator) `shouldBe` expected
 
 data Case = Case { description :: String
-                 , numerator   :: Integer
-                 , denominator :: Integer
-                 , expected    :: Integer
+                 , numerator   :: Int
+                 , denominator :: Int
+                 , expected    :: Int
                  }
 
 cases :: [Case]
-cases = [ Case { description = "6/7"
+cases = [
+          Case { description = "6/7"
                , numerator   = 6
                , denominator = 7
                , expected    = 2
+               },
+
+          Case { description = "2/5"
+               , numerator   = 2
+               , denominator = 5
+               , expected    = 3
                }
         ]

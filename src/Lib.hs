@@ -1,14 +1,21 @@
 module Lib
-    ( greedyDenominator
+    ( greedyDenominator,
+      Fraction(..)
     ) where
 
-greedyDenominator :: Integer -> Integer -> Integer -> Integer
-greedyDenominator a b c
+
+data Fraction = Fraction Int Int
+data UnitFraction = UnitFraction Int
+
+greedyDenominator :: Fraction -> Int
+greedyDenominator (Fraction a b) = denFinder (Fraction a b) 1
+
+denFinder :: Fraction -> Int -> Int
+denFinder (Fraction a b) c
     | b < a*c = c  -- if 1/c < a/b, then c is the greedy best guess
-    | otherwise = greedyDenominator a b (c+1)
+    | otherwise = denFinder (Fraction a b) (c+1)
 
 -- egyptianFraction :: Int -> Int -> [Int]
--- egyptianFraction a b
---     | a == 1 = b
---     | otherwise = egyptianFraction (a*c - b) b*c
+-- egyptianFraction 1 b = b
+-- egyptianFraction a b = [] ++ egyptianFraction (a*c - b) b*c
 --     where c = greedyDenominator a b
