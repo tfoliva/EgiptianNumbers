@@ -48,7 +48,7 @@ executable EgiptianNumbers-exe
 
 test-suite EgiptianNumbers-test
   type: exitcode-stdio-1.0
-  main-is: Spec.hs
+  main-is: egyptianRep.hs
   other-modules:
       Paths_EgiptianNumbers
   hs-source-dirs:
