@@ -1,14 +1,14 @@
-name:                EgiptianNumbers
-version:             0.1.0.0
-github:              "tfoliva/EgiptianNumbers"
-license:             BSD3
-author:              "Tiago Fontes de Oliva Costa"
-maintainer:          "tiago.oliva.costa@gmail.com"
-copyright:           "Tiago Oliva"
+name: EgiptianNumbers
+version: 0.1.0.0
+github: "tfoliva/EgiptianNumbers"
+license: BSD3
+author: "Tiago Fontes de Oliva Costa"
+maintainer: "tiago.oliva.costa@gmail.com"
+copyright: "Tiago Oliva"
 
 extra-source-files:
-- README.md
-- ChangeLog.md
+  - README.md
+  - ChangeLog.md
 
 # Metadata used when publishing your package
 # synopsis:            Short description of your package
@@ -17,32 +17,33 @@ extra-source-files:
 # To avoid duplicated efforts in documentation and dealing with the
 # complications of embedding Haddock markup inside cabal files, it is
 # common to point users to the README.md file.
-description:         Please see the README on GitHub at <https://github.com/tfoliva/EgiptianNumbers#readme>
+description: Please see the README on GitHub at <https://github.com/tfoliva/EgiptianNumbers#readme>
 
 dependencies:
-- base >= 4.7 && < 5
+  - base >= 4.7 && < 5
 
 library:
   source-dirs: src
 
 executables:
   EgiptianNumbers-exe:
-    main:                Main.hs
-    source-dirs:         app
+    main: Main.hs
+    source-dirs: app
     ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
     dependencies:
-    - EgiptianNumbers
+      - EgiptianNumbers
 
 tests:
   EgiptianNumbers-test:
-    main:                Spec.hs
-    source-dirs:         test
+    main: Spec.hs,
+      egyptianRep.hs
+    source-dirs: test
     ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
     dependencies:
-    - EgiptianNumbers
+      - EgiptianNumbers
