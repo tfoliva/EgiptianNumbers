@@ -1,3 +1,3 @@
-# Changelog for EgiptianNumbers
+# Changelog for EgyptianNumbers
 
 ## Unreleased changes
